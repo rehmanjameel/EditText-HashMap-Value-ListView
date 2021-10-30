@@ -28,21 +28,15 @@ class MainActivity : AppCompatActivity() {
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList)
 
         addButton.setOnClickListener {
-            hashMap["Key"] = editText.text.toString()
-            arrayList.add(hashMap.values.toString())
-            /*hashMap["Name"] = "AbdulRehman"
-            hashMap["Age"] = 23
-            hashMap["Designation"] = "Developer"*/
+            hashMap["Key"] = editText.text.toString() //Adding edittext value/text in hashmap
+            arrayList.add(hashMap.values.toString()) //Adding the hashmap into arraylist and showing only values of hashmap
             editText.setText("")
             println("Hashmap is: $arrayList")
         }
         showButton.setOnClickListener {
-            //arrayList.add(editText.text.toString())
-            //arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList)
             //arrayList = hashMap.map { "(${it.key}, ${it.value})" } as ArrayList<String>
-
             println("Hashmap is: $arrayList")
-            //arrayAdapter.notifyDataSetChanged()
+            arrayAdapter.notifyDataSetChanged()
             listView.adapter = arrayAdapter
         }
     }
